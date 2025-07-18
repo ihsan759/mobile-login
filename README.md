@@ -7,7 +7,7 @@ MOBILE-LOGIN/
 ├── allure-report/                    # Allure HTML report (auto generated)
 ├── allure-results/                   # Allure result output (auto generated)
 ├── app/
-│   └── Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
+│   └── Android.SauceLabs.Mobile.Sample.app.2.7.1.apk  # APK sudah disediakan
 ├── node_modules/                     # Dependencies (auto generated)
 ├── test/
 │   └── login.test.ts                 # Example test
@@ -46,6 +46,30 @@ npm install -g appium
 
 ---
 
+## 📲 APK Sudah Tersedia
+
+File APK untuk pengujian **sudah disediakan** di folder `app/`:
+
+```
+app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
+```
+
+### Install App
+
+```
+adb install -r ./app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk
+```
+
+Pastikan path di `wdio.conf.ts` sesuai:
+
+```ts
+'appium:app': require('path').resolve(
+  './app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk'
+),
+```
+
+---
+
 ## 🔌 Connect Android Device
 
 1. Aktifkan Developer Options & USB Debugging:
@@ -65,7 +89,7 @@ Harus muncul device/emulator terdeteksi.
 
 ## ⚙️ WDIO Configuration (`wdio.conf.ts`)
 
-Berikut contoh `wdio.conf.ts`:
+Contoh `wdio.conf.ts`:
 
 ```ts
 export const config: WebdriverIO.Config = {
@@ -129,11 +153,9 @@ appium
 adb devices
 ```
 
-3️⃣ Path APK & `platformVersion` cocok dengan device nyata atau emulator.
+3️⃣ Path APK sudah benar, Appium akan otomatis install.
 
-4️⃣ `autoGrantPermissions` auto-allow permission agar test tidak gagal.
-
-5️⃣ Jalankan test:
+4️⃣ Jalankan test:
 
 ```bash
 npm run test
