@@ -1,0 +1,17 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Build outputs
+dist/
+build/
+
+# Allure reports
+allure-results/
+allure-report/
+
+# lock files
+package-lock.json
+pnpm-lock.yaml
